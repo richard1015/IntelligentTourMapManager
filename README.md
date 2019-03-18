@@ -1,4 +1,4 @@
-# ttt
+# IntelligentTourMapManager
 
 > A Vue.js project
 
