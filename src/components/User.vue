@@ -28,11 +28,11 @@
     </Drawer>
     <!-- 新增信息End -->
     <Row :gutter="16">
-      <!-- <Col span="18" push="6">
-        <Input search enter-button @on-search="search" placeholder="搜索..."/>
-      </Col>-->
       <Col span="6">
         <Button @click="addForm" type="success" long>新增</Button>
+      </Col>
+      <Col span="18">
+        <Input search enter-button @on-search="search" placeholder="搜索..."/>
       </Col>
     </Row>
     <br>
@@ -45,8 +45,6 @@
     ></Table>
     <div style="margin: 10px;overflow: hidden">
       <Page
-        prev-text="< 上一页"
-        next-text="下一页 >"
         :total="tableInfo.totalCount"
         @on-change="changePage"
         :page-size="params.pageSize"
