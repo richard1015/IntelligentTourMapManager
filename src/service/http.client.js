@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: richard
  * @Date: 2018-12-26 17:15:14
- * @LastEditTime: 2019-03-18 16:42:54
+ * @LastEditTime: 2019-03-27 14:37:48
  * @LastEditors: Please set LastEditors
  */
 import axios from 'axios'
@@ -57,7 +57,7 @@ class Http {
       timeout: 1000 * 30,
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
-        'TOKEN': JSON.parse(localStorage.getItem('userInfo')).token
+        // 'TOKEN': JSON.parse(localStorage.getItem('userInfo')).token
       }
     }).then((res) => {
       return this.checkStatus(res)
