@@ -22,7 +22,7 @@
                       <input
                         autocomplete="off"
                         spellcheck="false"
-                        :value="username"
+                        v-model="username"
                         type="text"
                         placeholder
                         class="ivu-input ivu-input-large ivu-input-with-prefix"
@@ -42,7 +42,7 @@
                       <i class="ivu-icon ivu-icon-ios-eye ivu-input-icon ivu-input-icon-normal"></i>
                       <!---->
                       <input
-                        :value="password"
+                        v-model="password"
                         autocomplete="off"
                         spellcheck="false"
                         type="password"
@@ -96,7 +96,16 @@ export default {
     login() {
       const { username, password } = this;
       this.$api.login({ username, password }).then(res => {
-        this.$router.push("Main/User");
+        if (res) {
+          localStorage.setItem(
+            "userInfo",
+            JSON.stringify({
+              username,
+              token: res.token
+            })
+          );
+          this.$router.push("Main/User");
+        }
       });
     }
   }
@@ -105,7 +114,7 @@ export default {
 
 <style>
 .login {
-  background: url("../assets/bg.jpg") no-repeat center;
+  background: url("../assets/bg.jpeg") no-repeat center;
   background-size: 100% 100%;
   height: 100%;
   width: 100%;

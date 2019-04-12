@@ -10,9 +10,10 @@
         </MenuItem>
         <Submenu name="3">
           <template slot="title">
-            <Icon type="ios-stats"/>admin
+            <Icon type="ios-navigate"/>
+            {{userInfo.username}}
           </template>
-          <MenuItem name="3-1">退出</MenuItem>
+          <MenuItem name="3-1" to="/">退出</MenuItem>
         </Submenu>
       </Menu>
     </Header>
@@ -28,8 +29,15 @@
 export default {
   data() {
     return {
-      theme1: "light"
+      theme1: "light",
+      userInfo: {}
     };
+  },
+  mounted() {
+    let userInfo = localStorage.getItem("userInfo");
+    if (userInfo) {
+      this.userInfo = JSON.parse(userInfo);
+    }
   }
 };
 </script>
@@ -37,5 +45,8 @@ export default {
 <style>
 .ivu-layout-header {
   padding: 0 !important;
+}
+.ivu-poptip-confirm .ivu-poptip-body .ivu-icon {
+  display: none !important;
 }
 </style>

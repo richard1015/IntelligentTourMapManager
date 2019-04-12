@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: richard
  * @Date: 2018-12-26 17:15:14
- * @LastEditTime: 2019-03-27 14:37:48
+ * @LastEditTime: 2019-04-12 16:15:04
  * @LastEditors: Please set LastEditors
  */
 import axios from 'axios'
@@ -22,7 +22,14 @@ class Http {
       if (response.data.success) {
         return response.data.data || true;
       } else {
-        Message.error(response.data.errmsg)
+        if (response.data.status == 201) {
+          localStorage.removeItem("userInfo");
+          setTimeout(() => {
+            location.href = "/";
+          }, 2000);
+        }
+        Message.error(response.data.errorMsg)
+        return false;
       }
     } else {
       Message.error('数据报错,请稍后再试！')
@@ -47,6 +54,10 @@ class Http {
   * @param {*} [params] 请求参数
   */
   request(method, url, params) {
+    let userInfo = localStorage.getItem('userInfo');
+    let token;
+    if (userInfo)
+      token = JSON.parse(userInfo).token;
     Spin.show();
     params.timestamp = new Date().getTime()
     return axios({
@@ -57,7 +68,7 @@ class Http {
       timeout: 1000 * 30,
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
-        // 'TOKEN': JSON.parse(localStorage.getItem('userInfo')).token
+        'token': token
       }
     }).then((res) => {
       return this.checkStatus(res)
