@@ -303,7 +303,7 @@ export default {
         this.formData.voiceUrl = res.data;
         this.defaultFileList = [
           {
-            name: file.name + ".mp3",
+            name: file.name ,
             url: res.data
           }
         ];
