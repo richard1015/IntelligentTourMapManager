@@ -32,7 +32,7 @@
               :on-format-error="handleFormatError"
               :on-exceeded-size="handleMaxSize"
               :before-upload="handleBeforeUpload"
-              :format="['MP3','mp3']"
+              :format="['MP3','mp3','m4a']"
               :max-size="5120"
               type="drag"
               :action="uploadUrl"
