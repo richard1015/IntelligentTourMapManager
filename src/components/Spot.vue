@@ -181,7 +181,9 @@ export default {
                   on: {
                     click: () => {
                       const content = `<audio autoplay controls>
-                                        <source src="${params.row.voiceUrl}">
+                                        <source src="${this.$api.baseUrl}${
+                        params.row.voiceUrl
+                      }">
                                           您的浏览器不支持 audio 元素。
                                       </audio>`;
                       this.$Modal.success({
