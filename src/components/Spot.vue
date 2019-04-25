@@ -164,6 +164,10 @@ export default {
           key: "distance"
         },
         {
+          title: "播放量",
+          key: "count"
+        },
+        {
           title: "音频",
           key: "voiceUrl",
           align: "center",
@@ -303,7 +307,7 @@ export default {
         this.formData.voiceUrl = res.data;
         this.defaultFileList = [
           {
-            name: file.name ,
+            name: file.name,
             url: res.data
           }
         ];

@@ -118,6 +118,10 @@ export default {
           key: "gaoDeLat"
         },
         {
+          title: "访问量",
+          key: "count"
+        },
+        {
           title: "更新时间",
           key: "updateTime"
         },
