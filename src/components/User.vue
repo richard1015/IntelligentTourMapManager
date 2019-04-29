@@ -44,11 +44,7 @@
       stripe
     ></Table>
     <div style="margin: 10px;overflow: hidden">
-      <Page
-        :total="tableInfo.totalCount"
-        @on-change="changePage"
-        :page-size="params.pageSize"
-      ></Page>
+      <Page :total="tableInfo.totalCount" @on-change="changePage" :page-size="params.pageSize"></Page>
     </div>
   </div>
 </template>

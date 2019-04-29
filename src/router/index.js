@@ -5,6 +5,7 @@ import Main from '@/components/Main'
 import User from '@/components/User'
 import School from '@/components/School'
 import Spot from '@/components/Spot'
+import Logs from '@/components/Logs'
 
 Vue.use(Router)
 
@@ -41,6 +42,12 @@ export default new Router({
         name: 'Spot',
         component: Spot,
         meta: { title: '内容管理' }
+      },
+      {
+        path: 'Logs',
+        name: 'Logs',
+        component: Logs,
+        meta: { title: '实时日志' }
       }
       ]
     },

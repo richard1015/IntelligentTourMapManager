@@ -8,7 +8,10 @@
         <MenuItem name="2" to="/Main/School">
           <Icon type="ios-paper"/>内容管理
         </MenuItem>
-        <Submenu name="3">
+        <MenuItem name="3" to="/Main/Logs">
+          <Icon type="ios-paper"/>实时日志
+        </MenuItem>
+        <Submenu name="4">
           <template slot="title">
             <Icon type="ios-navigate"/>
             {{userInfo.username}}
