@@ -338,7 +338,7 @@ export default {
     handleMaxSize(file) {
       this.$Notice.warning({
         title: "文件大小超出限制",
-        desc: "File  " + file.name + " is too large, no more than 5M."
+        desc: "File  " + file.name + " is too large, no more than 10M."
       });
     },
     handleBeforeUpload() {
