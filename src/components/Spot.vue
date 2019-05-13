@@ -35,7 +35,7 @@
               :on-exceeded-size="handleMaxSize"
               :before-upload="handleBeforeUpload"
               :format="['MP3','mp3','m4a']"
-              :max-size="5120"
+              :max-size="10240"
               type="drag"
               :action="uploadUrl"
             >
