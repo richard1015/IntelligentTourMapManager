@@ -24,7 +24,7 @@ export default {
       if ("WebSocket" in window) {
         // 打开一个 web socket
         console.log(self.$ws.baseUrl);
-        var ws = new WebSocket("ws://schoolsocket.zhuzhida.vip"||self.$ws.baseUrl);
+        var ws = new WebSocket(self.$ws.baseUrl);
         self.ws = ws;
         ws.onopen = function() {
           // Web Socket 已连接上，使用 send() 方法发送数据

@@ -27,8 +27,10 @@
           <Col span="24">
             <Upload
               ref="upload"
+              :headers="uploadHeaders"
               :default-file-list="defaultFileList"
               :on-success="handleSuccess"
+              :on-error="handleError"
               :on-format-error="handleFormatError"
               :on-exceeded-size="handleMaxSize"
               :before-upload="handleBeforeUpload"
@@ -118,6 +120,9 @@ export default {
         // }
       ], //默认已上传文件列表
       uploadUrl: this.$api.baseUrl + "/common/upload",
+      uploadHeaders: {
+        token: JSON.parse(localStorage.getItem("userInfo")).token
+      },
       locationArray: [],
       formData: {
         name: "",
@@ -297,6 +302,12 @@ export default {
     handleView(name) {
       this.fileName = name;
     },
+    handleError(error, file, fileList) {
+      this.$Notice.warning({
+        title: "上传失败",
+        desc: "服务器一不小心报错了，请稍后再试！"
+      });
+    },
     handleRemove(file) {
       // const fileList = this.$refs.upload.fileList;
       // this.$refs.upload.fileList.splice(fileList.indexOf(file), 1);
@@ -311,6 +322,11 @@ export default {
             url: res.data
           }
         ];
+      } else {
+        this.$Notice.warning({
+          title: "上传失败",
+          desc: res.errorMsg
+        });
       }
     },
     handleFormatError(file) {
