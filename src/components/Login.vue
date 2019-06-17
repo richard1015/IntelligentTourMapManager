@@ -88,8 +88,8 @@
 export default {
   data() {
     return {
-      username: "",
-      password: ""
+      username: "admin",
+      password: "admin1234"
     };
   },
   mounted() {

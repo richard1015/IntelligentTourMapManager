@@ -1,6 +1,10 @@
 # IntelligentTourMapManager
 
-> A Vue.js project
+> 智能导览图后台管理系统
+功能说明 
+1.用户管理（增删改查） token验证
+2.内容管理（增删改查） token验证
+3.后台实时日志 websocket推送 token验证
 
 ## Build Setup
 

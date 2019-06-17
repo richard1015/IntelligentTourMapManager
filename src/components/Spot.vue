@@ -374,7 +374,7 @@ export default {
       this.$api.deleteSpot({ id }).then(res => {
         if (res) {
           this.tableInfo.arrays.splice(index, 1);
-          this.$Message.success("删除成功!");
+          this.$Message.success("删除成功!(目前演示功能不做真实删除，下载源码后，自行修改后台代码逻辑)");
         }
       });
     },
