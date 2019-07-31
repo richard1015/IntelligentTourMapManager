@@ -6,17 +6,17 @@
         <Row :gutter="32">
           <Col span="24">
             <FormItem label="名称" label-position="top" prop="name">
-              <Input v-model="formData.name" placeholder="请输入名称"/>
+              <Input v-model="formData.name" placeholder="请输入名称" />
             </FormItem>
           </Col>
           <Col span="12">
             <FormItem label="经度" label-position="top" prop="gaoDeLon">
-              <Input readonly v-model="formData.gaoDeLon" placeholder="请输入经度"/>
+              <Input readonly v-model="formData.gaoDeLon" placeholder="请输入经度" />
             </FormItem>
           </Col>
           <Col span="12">
             <FormItem label="纬度" label-position="top" prop="gaoDeLat">
-              <Input readonly v-model="formData.gaoDeLat" placeholder="请输入纬度"/>
+              <Input readonly v-model="formData.gaoDeLat" placeholder="请输入纬度" />
             </FormItem>
           </Col>
         </Row>
@@ -35,10 +35,10 @@
         <Button @click="addForm" type="success" long>新增</Button>
       </Col>
       <Col span="18">
-        <Input search enter-button @on-search="search" placeholder="搜索..."/>
+        <Input search enter-button @on-search="search" placeholder="搜索..." />
       </Col>
     </Row>
-    <br>
+    <br />
     <Table
       @on-sort-change="tableSoreChange"
       border
@@ -63,19 +63,19 @@ export default {
         name: [
           {
             required: true,
-            message: "请输入名称",
+            message: "请输入名称"
           }
         ],
         gaoDeLon: [
           {
             required: true,
-            message: "请填写经度",
+            message: "请填写经度"
           }
         ],
         gaoDeLat: [
           {
             required: true,
-            message: "请填写纬度",
+            message: "请填写纬度"
           }
         ]
       },
@@ -132,6 +132,26 @@ export default {
           align: "center",
           render: (h, params) => {
             return h("div", [
+              h(
+                "Button",
+                {
+                  props: {
+                    type: "success",
+                    size: "small"
+                  },
+                  style: {
+                    marginRight: "5px"
+                  },
+                  on: {
+                    click: () => {
+                      window.open(
+                        `${this.$api.baseUrl}/?pid=${params.row._id}`
+                      );
+                    }
+                  }
+                },
+                "预览"
+              ),
               h(
                 "Button",
                 {
@@ -238,7 +258,9 @@ export default {
       this.$api.deleteSchool({ id }).then(res => {
         if (res) {
           this.tableInfo.arrays.splice(index, 1);
-          this.$Message.success("删除成功!(目前演示功能不做真实删除，下载源码后，自行修改后台代码逻辑)");
+          this.$Message.success(
+            "删除成功!(目前演示功能不做真实删除，下载源码后，自行修改后台代码逻辑)"
+          );
         }
       });
     },
